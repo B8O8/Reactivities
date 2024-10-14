@@ -1,15 +1,16 @@
 import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import App from './app/layout/App'
+import ReactDom from 'react-dom/client'
+import { RouterProvider } from 'react-router-dom'
 import 'semantic-ui-css/semantic.min.css'
 import './app/layout/styles.css'
 import { StoreContext, store } from './app/stores/store'
+import { router } from './app/router/Routes'
 
 
-createRoot(document.getElementById('root')!).render(
+ReactDom.createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <StoreContext.Provider value={store}>
-    <App />
+      <RouterProvider router={router} />
     </StoreContext.Provider>
   </StrictMode>,
 )
